@@ -19,7 +19,8 @@ app.use(
 );
 
 const URL = process.env.DATABASE_URL;
-//Fix CORS
+const REACT_URL = process.env.REACT_URL;
+// Fix CORS
 // app.use(function (req, res, next) {
 //   res.setHeader("Access-Control-Allow-Origin", REACT_URL);
 //   res.setHeader(
