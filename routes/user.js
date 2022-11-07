@@ -16,8 +16,8 @@ router.get("/findBillByUserById/:id", UserController.findBillByUserById);
 router.get("/findAllFeedback", UserController.findAllFeedback);
 
 router.post("/signIn", UserController.signIn);
-router.post("/logIn", UserController.sendLetter);
-router.post("/sendLetter", UserController.logIn);
+router.post("/logIn", UserController.logIn);
+router.post("/sendLetter", UserController.sendLetter);
 router.post("/resetPassword", UserController.resetPassword);
 router.post("/provisionalInvoice", UserController.provisionalInvoice);
 router.post("/findBill", UserController.findBill);
