@@ -99,108 +99,24 @@ class User {
           from: `VOSTRO CINEMA <${process.env.USER}>`,
           to: req.body.email,
           subject: "Code Verify",
-          html: `<table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-                  <td bgcolor="#FFA73B" align="center">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                          <tr>
-                              <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
-              <tr>
-                  <td bgcolor="#FFA73B" align="center" style="padding: 0px 10px 0px 10px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                          <tr>
-                              <td bgcolor="#ffffff" align="center" valign="top"
-                                  style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                                  <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> <img
-                                      src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120"
-                                      style="display: block; border: 0px;" />
-                              </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
-              <tr>
-                  <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
-                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                          <tr>
-                              <td bgcolor="#ffffff" align="left"
-                                  style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                  <p style="margin: 0;">We're excited to have you get started. First, you need to confirm your
-                                      account. Just press the button below.</p>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td bgcolor="#ffffff" align="left">
-                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                      <tr>
-                                          <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                              <table border="0" cellspacing="0" cellpadding="0">
-                                                  <tr>
-                                                      <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a
-                                                              href="#" target="_blank"
-                                                              style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Confirm
-                                                              Account</a></td>
-                                                  </tr>
-                                              </table>
-                                          </td>
-                                      </tr>
-                                  </table>
-                              </td>
-                          </tr> <!-- COPY -->
-                          <tr>
-                              <td bgcolor="#ffffff" align="left"
-                                  style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                  <p style="margin: 0;">If that doesn't work, copy and paste the following link in your
-                                      browser:</p>
-                              </td>
-                          </tr> <!-- COPY -->
-                          <tr>
-                              <td bgcolor="#ffffff" align="left"
-                                  style="padding: 20px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                  <p style="margin: 0;"><a href="#" target="_blank"
-                                          style="color: #FFA73B;">https://bit.li.utlddssdstueincx</a></p>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td bgcolor="#ffffff" align="left"
-                                  style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                  <p style="margin: 0;">If you have any questions, just reply to this email&mdash;we're always
-                                      happy to help out.</p>
-                              </td>
-                          </tr>
-                          <tr>
-                              <td bgcolor="#ffffff" align="left"
-                                  style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                                  <p style="margin: 0;">Cheers,<br>BBB Team</p>
-                              </td>
-                          </tr>
-                      </table>
-                  </td>
-              </tr>
+          html: `
+                <div style="width: 100%; background-color: #f3f9ff; padding: 5rem 0">
+                <div style="max-width: 700px; background-color: white; margin: 0 auto">
+                    <div style="width: 100%; background-color: #00efbc; padding: 20px 0; text-align: center;">
+                        <h3 style="font-size: 1.5rem">VOSTRO CINEMA</h3>
+                    </div>
+                    <div style="width: 100%; gap: 10px; padding: 30px 0; display: grid">
 
-          </table>`,
-          // html: `
-          //       <div style="width: 100%; background-color: #f3f9ff; padding: 5rem 0">
-          //       <div style="max-width: 700px; background-color: white; margin: 0 auto">
-          //           <div style="width: 100%; background-color: #00efbc; padding: 20px 0; text-align: center;">
-          //               <h3 style="font-size: 1.5rem">VOSTRO CINEMA</h3>
-          //           </div>
-          //           <div style="width: 100%; gap: 10px; padding: 30px 0; display: grid">
-
-          //               <div style="font-size: 1.2rem; margin: 0 30px; text-align: center;">
-          //               ${
-          //                 req.body.state === "getOTP"
-          //                   ? `<p>Mã OTP của bạn là: <span style="font-weight: 700;">${req.body.otp}</span></p>`
-          //                   : `<p>Mật khẩu của bạn là: <span style="font-weight: 700;">${result.password}</span></p>`
-          //               }
-          //               </div>
-          //           </div>
-          //       </div>
-          //           `,
+                        <div style="font-size: 1.2rem; margin: 0 30px; text-align: center;">
+                        ${
+                          req.body.state === "getOTP"
+                            ? `<p>Mã OTP của bạn là: <span style="font-weight: 700;">${req.body.otp}</span></p>`
+                            : `<p>Mật khẩu của bạn là: <span style="font-weight: 700;">${result.password}</span></p>`
+                        }
+                        </div>
+                    </div>
+                </div>
+                    `,
         };
         let transpoter = nodemailer.createTransport({
           host: "smtp.gmail.com",
@@ -359,6 +275,92 @@ class User {
     })
       .sort({ createdAt: -1 })
       .limit(10);
+  }
+
+  // [POST] /user/sendLetter
+  sendLetter(req, res, next) {
+    const options = {
+      from: `VOSTRO CINEMA <${process.env.USER}>`,
+      to: req.body.email,
+      subject: "Thư xác nhận",
+      html: `<table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tr>
+                  <td bgcolor="#FFA73B" align="center">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                          <tr>
+                              <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td bgcolor="#FFA73B" align="center" style="padding: 0px 10px 0px 10px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                          <tr>
+                              <td bgcolor="#ffffff" align="center" valign="top"
+                                  style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
+                                  <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1> <img
+                                      src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120"
+                                      style="display: block; border: 0px;" />
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+              <tr>
+                  <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+                      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                          <tr>
+                              <td bgcolor="#ffffff" align="left"
+                                  style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                  <p style="margin: 0;">Cám ơn bạn đã gửi CV về cho hệ thống. Tiếp tục trải nghiệm website, bấm vào nút bên dưới.</p>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td bgcolor="#ffffff" align="left">
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                          <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
+                                              <table border="0" cellspacing="0" cellpadding="0">
+                                                  <tr>
+                                                      <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a
+                                                              href="https://vostro-cinama.netlify.app/" target="_blank"
+                                                              style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">VOSTRO CINEMA</a></td>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                          </tr> <!-- COPY -->
+                          <tr>
+                              <td bgcolor="#ffffff" align="left"
+                                  style="padding: 0px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                  <p style="margin: 0;">Chúng tôi sẽ xem xét và thông báo kết quả sớm nhất có thể. Nhớ thường xuyên kiểm tra gmail này bạn nhé !!!</p>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td bgcolor="#ffffff" align="left"
+                                  style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                                  <p style="margin: 0;">Chào bạn,<br>VOSTRO CINEMA</p>
+                              </td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+
+          </table>`,
+    };
+    let transpoter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: process.env.USER, // email
+        pass: process.env.PASSWORD, //password
+      },
+    });
+    transpoter.sendMail(options).then((result) => res.json(result));
   }
 }
 module.exports = new User();
