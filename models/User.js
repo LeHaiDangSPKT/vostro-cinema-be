@@ -11,6 +11,7 @@ const User = new Schema(
     username: { type: String },
     password: { type: String },
     state: { type: Boolean, default: true },
+    role: { type: String, default: "user" },
   },
   {
     timestamps: true,
