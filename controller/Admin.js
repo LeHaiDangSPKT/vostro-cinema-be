@@ -124,13 +124,19 @@ class Admin {
 
   //[GET] /admin/getAllUsers
   getAllUsers(req, res, next) {
-    UserModel.find({ state: true }, (err, result) => {
-      if (err) {
-        res.json(err);
-      } else {
-        res.json(result);
+    UserModel.find(
+      {
+        $and: [{ state: true }, { role: "user" }],
+      },
+      (err, result) => {
+        console.log(result);
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(result);
+        }
       }
-    });
+    );
   }
 
   // [UPDATE] //admin/deleteAccountById/:id
