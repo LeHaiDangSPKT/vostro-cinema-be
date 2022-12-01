@@ -4,6 +4,21 @@ const FeedbackModel = require("../models/Feedback");
 const nodemailer = require("nodemailer");
 
 class User {
+  //[POST] /user/logInOrSingInWithGoogle
+  logInOrSingInWithGoogle(req, res, next) {
+    UserModel.findOne(
+      {
+        $and: [{ username: req.body.username }, { state: true }],
+      },
+      (err, result) => {
+        if (result) {
+          res.json(result);
+        } else {
+          res.status(404).send(null);
+        }
+      }
+    );
+  }
   // [POST] /user/signIn
   signIn(req, res, next) {
     if (req.body.state) {

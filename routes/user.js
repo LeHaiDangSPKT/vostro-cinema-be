@@ -17,6 +17,7 @@ router.get("/findAllFeedback", UserController.findAllFeedback);
 
 router.post("/signIn", UserController.signIn);
 router.post("/logIn", UserController.logIn);
+router.post("/logInOrSingInWithGoogle", UserController.logInOrSingInWithGoogle);
 router.post("/sendLetter", UserController.sendLetter);
 router.post("/resetPassword", UserController.resetPassword);
 router.post("/provisionalInvoice", UserController.provisionalInvoice);
