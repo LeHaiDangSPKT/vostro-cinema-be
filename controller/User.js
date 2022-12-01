@@ -8,7 +8,7 @@ class User {
   logInOrSingInWithGoogle(req, res, next) {
     UserModel.findOne(
       {
-        $and: [{ username: req.body.username }, { state: true }],
+        $and: [{ email: req.body.email }, { state: true }],
       },
       (err, result) => {
         if (result) {
