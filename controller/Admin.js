@@ -129,7 +129,6 @@ class Admin {
         $and: [{ state: true }, { role: "user" }],
       },
       (err, result) => {
-        console.log(result);
         if (err) {
           res.json(err);
         } else {
@@ -275,9 +274,9 @@ class Admin {
       .catch(next);
   }
 
-  // [POST] /admin/getAllYear
+  // [GET] /admin/getAllYear
   getAllYear(req, res, next) {
-    BillModel.find({})
+    BillModel.find({ state: 0 })
       .then((result) => {
         const arr = result.map((item) => {
           return item.createdAt.toString().slice(11, 15);
@@ -292,11 +291,57 @@ class Admin {
     BillModel.find({
       $and: [
         { theaterId: req.params.id },
+        { state: 0 },
         { showtime: new RegExp(req.body.year) },
       ],
     })
       .then((result) => {
         return res.json(result);
+      })
+      .catch(next);
+  }
+
+  // [GET] /admin/getAllBillToChart
+  getAllBillToChart(req, res, next) {
+    BillModel.find({ state: 0 })
+      .then((result) => {
+        var d = new Date();
+        const arrTheaterId = result.map((item) => item.theaterId);
+        const arrCircle = arrTheaterId.reduce(function (a, b) {
+          a[b] = a[b] + 1 || 1;
+          return a;
+        }, {});
+
+        const currentYear = d.getFullYear();
+        var count = 1,
+          quantityByMonth = [],
+          oldQuantityByMonth = [];
+        while (count <= 12) {
+          var total = 0,
+            oldTotal = 0;
+          result.map((item) => {
+            if (
+              new Date(item.createdAt).getFullYear() == currentYear &&
+              count == new Date(result[0].createdAt).getMonth() + 1
+            ) {
+              total++;
+            } else if (
+              new Date(item.createdAt).getFullYear() == currentYear - 1 &&
+              count == new Date(result[0].createdAt).getMonth() + 1
+            ) {
+              oldTotal++;
+            }
+          });
+          count++;
+          quantityByMonth.push(total);
+          oldQuantityByMonth.push(oldTotal);
+        }
+
+        return res.json([
+          { totalBill: result.length },
+          arrCircle,
+          [quantityByMonth, oldQuantityByMonth],
+        ]);
       })
       .catch(next);
   }
