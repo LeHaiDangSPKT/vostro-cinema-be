@@ -28,11 +28,12 @@ router.post(
   "/getAllShowtimeByIdFilmAndTheater",
   AdminController.getAllShowtimeByIdFilmAndTheater
 );
+router.post("/getAllYear", AdminController.getAllYear);
 router.post(
   "/getAllBillByYearAndTheaterId/:id",
   AdminController.getAllBillByYearAndTheaterId
 );
-router.get("/getAllYear", AdminController.getAllYear);
+
 router.get("/getAllTheater", AdminController.getAllTheater);
 router.get("/getOneTheaterById/:id", AdminController.getOneTheaterById);
 router.get("/getNameAndIdAllTheater", AdminController.getNameAndIdAllTheater);
@@ -42,6 +43,5 @@ router.get("/getAllUsers", AdminController.getAllUsers);
 router.get("/getChairService", AdminController.getChairService);
 router.get("/getMenuService", AdminController.getMenuService);
 router.get("/getAllShowTimesById/:id", AdminController.getAllShowTimesById);
-router.get("/getAllBillToChart", AdminController.getAllBillToChart);
 
 module.exports = router;
