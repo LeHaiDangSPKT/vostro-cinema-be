@@ -322,12 +322,12 @@ class Admin {
           result.map((item) => {
             if (
               new Date(item.createdAt).getFullYear() == currentYear &&
-              count == new Date(result[0].createdAt).getMonth() + 1
+              count == new Date(item.createdAt).getMonth() + 1
             ) {
               total++;
             } else if (
               new Date(item.createdAt).getFullYear() == currentYear - 1 &&
-              count == new Date(result[0].createdAt).getMonth() + 1
+              count == new Date(item.createdAt).getMonth() + 1
             ) {
               oldTotal++;
             }
