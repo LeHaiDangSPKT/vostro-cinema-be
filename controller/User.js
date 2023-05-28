@@ -85,25 +85,37 @@ class User {
       });
     }
   }
+
+  static CheckInput(str) {
+    return (
+      str.includes("$ne") ||
+      str.includes("$gt") ||
+      str == undefined ||
+      str == null
+    );
+  }
+
   // [POST] /user/logIn
   logIn(req, res, next) {
-    UserModel.findOne(
-      {
-        $and: [
-          { username: req.body.username },
-          { password: req.body.password },
-          { state: true },
-        ],
-      },
-      (err, result) => {
-        if (result) {
-          res.json(result);
-        } else {
-          res.status(404).send("Tên tài khoản hoặc mật khẩu không đúng");
-          //Không chia trường hợp vì tính bảo mật
+    if (!CheckInput(req.body.username) && !CheckInput(req.body.password)) {
+      UserModel.findOne(
+        {
+          $and: [
+            { username: req.body.username },
+            { password: req.body.password },
+            { state: true },
+          ],
+        },
+        (err, result) => {
+          if (result) {
+            res.json(result);
+          } else {
+            res.status(404).send("Tên tài khoản hoặc mật khẩu không đúng");
+            //Không chia trường hợp vì tính bảo mật
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   // [POST] /user/resetPassword
@@ -210,7 +222,6 @@ class User {
       (err, result) => {
         if (result) {
           res.json(result);
-          console.log(result);
         } else {
           res.json(err);
         }
