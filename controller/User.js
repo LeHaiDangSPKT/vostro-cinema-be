@@ -97,7 +97,10 @@ class User {
 
   // [POST] /user/logIn
   logIn(req, res, next) {
-    if (!CheckInput(req.body.username) && !CheckInput(req.body.password)) {
+    if (
+      !User.CheckInput(req.body.username) &&
+      !User.CheckInput(req.body.password)
+    ) {
       UserModel.findOne(
         {
           $and: [
