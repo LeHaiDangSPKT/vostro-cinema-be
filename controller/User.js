@@ -4,6 +4,14 @@ const FeedbackModel = require("../models/Feedback");
 const nodemailer = require("nodemailer");
 
 class User {
+  // static CheckInput(str) {
+  //   return (
+  //     str.includes("$ne") ||
+  //     str.includes("$gt") ||
+  //     str == undefined ||
+  //     str == null
+  //   );
+  // }
   //[POST] /user/logInOrSingInWithGoogle
   logInOrSingInWithGoogle(req, res, next) {
     UserModel.findOne(
@@ -21,6 +29,10 @@ class User {
   }
   // [POST] /user/signIn
   signIn(req, res, next) {
+    // if (
+    //   !User.CheckInput(req.body.username) &&
+    //   !User.CheckInput(req.body.password)
+    // ) {
     if (req.body.state) {
       UserModel.findOne(
         {
@@ -84,41 +96,41 @@ class User {
         }
       });
     }
-  }
-
-  static CheckInput(str) {
-    return (
-      str.includes("$ne") ||
-      str.includes("$gt") ||
-      str == undefined ||
-      str == null
-    );
+    // } else {
+    //   res
+    //     .status(404)
+    //     .send("Vui lòng không nhận các kí tự đặc biệt hoặc cụm $ne, $gt");
+    // }
   }
 
   // [POST] /user/logIn
   logIn(req, res, next) {
-    if (
-      !User.CheckInput(req.body.username) &&
-      !User.CheckInput(req.body.password)
-    ) {
-      UserModel.findOne(
-        {
-          $and: [
-            { username: req.body.username },
-            { password: req.body.password },
-            { state: true },
-          ],
-        },
-        (err, result) => {
-          if (result) {
-            res.json(result);
-          } else {
-            res.status(404).send("Tên tài khoản hoặc mật khẩu không đúng");
-            //Không chia trường hợp vì tính bảo mật
-          }
+    // if (
+    //   !User.CheckInput(req.body.username) &&
+    //   !User.CheckInput(req.body.password)
+    // ) {
+    UserModel.findOne(
+      {
+        $and: [
+          { username: req.body.username },
+          { password: req.body.password },
+          { state: true },
+        ],
+      },
+      (err, result) => {
+        if (result) {
+          res.json(result);
+        } else {
+          res.status(404).send("Tên tài khoản hoặc mật khẩu không đúng");
+          //Không chia trường hợp vì tính bảo mật
         }
-      );
-    }
+      }
+    );
+    // } else {
+    //   res
+    //     .status(404)
+    //     .send("Vui lòng không nhận các kí tự đặc biệt hoặc cụm $ne, $gt");
+    // }
   }
 
   // [POST] /user/resetPassword
